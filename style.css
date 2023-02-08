@@ -22,13 +22,34 @@
     box-sizing: border-box;
 }
 
-article {
-    height: 100vh;
-    width: 100%;
+body {
+    min-height: 100vh;
     background-color: var(--clr-bgmain);
-    display: flex;
+    font-size: 15px;
+    display: grid
 }
+article{
+    margin: 60px 20px 50px 20px;
+    padding-bottom: 2rem;
+}
+picture {
+    order: -1;
+    background: var(--clr-accent);
+    background-size: contain;
+    border-radius: 0.5rem 0.5rem 0 0;
 
+}
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    mix-blend-mode: multiplay;
+    opacity: 0.5;
+    border-radius: 0.5rem 0.5rem 0 0;
+    
+     
+}
 a {
     color: var(--clr-accent);
 }
@@ -36,58 +57,57 @@ a {
 span {
     color: var(--clr-accent);
 }
+.nowrap{
+    color: white;
+    white-space: nowrap;
+}
 .card {
-    width: 70vw;
+    width: 100%;
     background-color: var(--clr-bgcard);
-    max-width: 940px;
+    display: grid;
+    gap: 1rem;
+    max-width: 111rem;
+    grid-template-columns: 1fr;
     border-radius: 0.5rem;
-    display: flex;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% ,-50%);
-    
-
-    
 }
-.desc {
-    width: 50%;
-    padding-top: 3rem;
-    padding-left: 3.4rem;
-    padding-bottom: 3.4rem;
-    padding-right: 4.5rem;  
+.desc { 
+    height: 100vh;
+    padding: 1rem 2rem 1rem 2rem;
+    height: fit-content;
 }
 
-.desc h1 {
+h1 {
     color: var(--clr-head);
     font-family: var(--ff-base);
-    font-size: 27.6px;
-    font-weight: var(--fw-bold);
-    padding-bottom: 1.3rem;
-    line-height: 2.2rem;
-    letter-spacing: 0.03rem;    
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0.05rem;
 }
 
-.desc p {
+p {
     color: var(--clr-par2);
     font-family: var(--ff-base);
-    font-size: 11.8873px;
+    font-size: 13px;
     line-height: 1.2rem;
     font-weight: var(--fw-regular);
-    padding-right: 2rem;
-    padding-bottom: 3.7rem;
-    letter-spacing: 0.0005rem;   
+    letter-spacing: 0.0005rem;
+    text-align: center;
+    padding: 1.2rem;
+    padding-bottom: 2rem;   
 }
 .stat {
     color: var(--clr-stat);
-
-   
+  
 }
 .stat ul {
     list-style-type: none;
-    display:inline-block;
     line-height: 1.5rem;
-       
+    display: flex;
+    flex-direction: column;
+    flex-flow: column nowrap;
+    place-items: center;
+    padding-bottom: 1.8rem;
+        
 }
 .info {
     font-family: var(--ff-sec);
@@ -102,42 +122,97 @@ span {
     color: var(--clr-head);
     font-size: 18.5px;
 }
-.stat1 {
-    padding-right: 3rem;
-}
-.stat2 {
-    padding-right: 3rem;
-}
-
-.card .image {
-    background-image: linear-gradient(to bottom, hsla(277, 64%, 61%, 0.5), hsla(277, 64%, 61%, 0.5)),
-    url(images/image-header-desktop.jpg);
-    width: 50%;
-    background-repeat: no-repeat;
-}
 footer{
     color: white;
-    position: fixed;
+    position: static;
     inset: auto 0 0 0;
     padding-bottom: 2rem;
     text-align: center;
 }
 
-
-@media screen and (max-width: 380px) {
+ @media screen and (min-width: 1200px)
+ {
+    body {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+    article {
+        display: grid;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+    }
     .card {
-        width: 90vw;
-        height: 90vh;
-        flex-direction: column-reverse;
-        justify-content: space-between;
+        display: grid ;
+        grid-template-columns: 50% 50%;
+        width: 1100px;
+
+    }
+    .desc {   
+        order: -1;
+        padding: 4rem 3rem 3rem 5rem;
+    }
+    .desc h1 {
+        text-align: left;
+        font-size: 30px;
+        letter-spacing: 0.08rem;
+        line-height: 2rem;
+    }
+    .desc p {
+        text-align: left;
+        padding-left: 0;
+        padding-right: 7rem;
+        padding-bottom: 3.6rem;
+        padding-top: 2.5rem;
+    }
+    .nowrap {
+        white-space: inherit;
+    }
+    .card picture {
+        width: max-content;
+        border-radius: 0 0.5rem 0.5rem 0;
+        max-height: max-content;
+    }
+    .card img {
+    max-width: 560px;
+    border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .stat {
         display: flex;
+        flex-direction: row nowrap;
+        gap: 3.7rem;     
     }
-    .card .disc {
-        width: auto;
-        height: 65%;
+    .info {
+        font-size: 12px;
     }
-    .card .image {
-        width: auto;
-        height: 35%;;
+    .numb {
+        font-size: 20px;
     }
-}
+    .stat1 .numb {
+        align-self: self-start;
+    }
+    .stat2 .numb {
+        align-self: self-start;
+    }
+    footer {
+        display: none;
+    }  
+    }
+
+    
+
+
+
+
+    
+         
+        
+        
+    
+ 
+
+
+ 
+
+    
